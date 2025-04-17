@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { PrimerComponente } from './PrimerComponente'
 import './Styles.css'
+import { ContadorApp } from './ContadorApp'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <PrimerComponente titulo="Esta sección de de propos" />
+  <StrictMode>    
+    <ContadorApp />
   </StrictMode>,
 )
