@@ -29,13 +29,19 @@ const ListadoApp = () => {
     ]
     const [temas, setTemas] = useState(array);
     const [tema1, setTemas1] = useState(array);
+    
+    const handleAddTema = () =>{
+        setTemas([...temas,{nombre:"Nuevo nombre", visto:false}])
+        setTemas1([...temas,{nombre:"Nuevo nombre", visto:false}])
+    }
+
     return (
         <>
             <h2>Operador ternario ??</h2>
             <ol>{temas.map(tema => <Item key={tema.nombre} nombre={tema.nombre} visto={tema.visto}></Item>)}</ol>
             <h2>Otra forma de utilizar ternario doble &&</h2>
             <ol>{tema1.map(tema => <Item1 key={tema.nombre} nombre={tema.nombre} visto={tema.visto}></Item1>)}</ol>
-            
+            <button onClick={handleAddTema}>Agregar Tema</button>
         </>
     )
 }
