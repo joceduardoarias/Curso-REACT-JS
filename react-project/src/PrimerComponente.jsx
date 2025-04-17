@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Estas variables no son globales, son variables locales
+// Están por fuera de la función de esta forma no se vuelven a crear cada vez que se renderiza el componente
 const string = 'Hola Mundo'
 const number = 1234
 const boolean = true
