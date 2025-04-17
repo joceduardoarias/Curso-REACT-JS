@@ -5,6 +5,6 @@ import { ContadorApp } from './ContadorApp'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>    
-    <ContadorApp />
+    <ContadorApp entero={0}/>
   </StrictMode>,
 )
