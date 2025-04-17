@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Item = ({ nombre, visto }) => {
     return <li>{nombre}
@@ -13,20 +13,29 @@ const Item1 = ({ nombre, visto }) => {
 }
 
 const ListadoApp = () => {
+    let array = [
+        {nombre:"Desarrollo", visto:true},
+        {nombre:"UseState", visto:true},
+        {nombre:"Hooks", visto:true},
+        {nombre:"Redux", visto:false},
+        {nombre:"CustomHooks", visto:false}
+    ]
+    let array1 = [
+        {nombre:"Desarrollo", visto:true},
+        {nombre:"UseState", visto:true},
+        {nombre:"Hooks", visto:true},
+        {nombre:"Redux", visto:false},
+        {nombre:"CustomHooks", visto:false}
+    ]
+    const [temas, setTemas] = useState(array);
+    const [tema1, setTemas1] = useState(array);
     return (
         <>
             <h2>Operador ternario ??</h2>
-            <Item nombre={"Desarrollo"} visto={true}></Item>
-            <Item nombre={"UseState"} visto={true}></Item>
-            <Item nombre={"Hooks"} visto={true}></Item>
-            <Item nombre={"Redux"} visto={false}></Item>
-            <Item nombre={"CustomHooks"} visto={false}></Item>
+            <ol>{temas.map(tema => <Item key={tema.nombre} nombre={tema.nombre} visto={tema.visto}></Item>)}</ol>
             <h2>Otra forma de utilizar ternario doble &&</h2>
-            <Item1 nombre={"Desarrollo"} visto={true}></Item1>
-            <Item1 nombre={"UseState"} visto={true}></Item1>
-            <Item1 nombre={"Hooks"} visto={true}></Item1>
-            <Item1 nombre={"Redux"} visto={false}></Item1>
-            <Item1 nombre={"CustomHooks"} visto={false}></Item1>
+            <ol>{tema1.map(tema => <Item1 key={tema.nombre} nombre={tema.nombre} visto={tema.visto}></Item1>)}</ol>
+            
         </>
     )
 }
