@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 
-export const PrimerComponente = ({titulo, subtitulo, entero}) => {
+export const PrimerComponente = ({titulo, subtitulo = "Subtitulo por defecto", entero}) => {
   console.log(titulo)
   console.log(subtitulo)
   console.log(entero)
