@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AgregarTarea from './components/AgregarTarea';
 
 const Item = ({ nombre, visto }) => {
     return <li>{nombre}
@@ -34,10 +35,16 @@ const ListadoApp = () => {
         setTemas([...temas,{nombre:"Nuevo nombre", visto:false}])
         setTemas1([...temas,{nombre:"Nuevo nombre", visto:false}])
     }
+    const handleOnNuevaTarea = (arg) =>{
+        const nuevaTarea = {nombre:arg, visto:false}
+        setTemas([...temas,nuevaTarea])
+    }
 
     return (
         <>
             <h2>Operador ternario ??</h2>
+            <AgregarTarea
+            onNuevaTarea={handleOnNuevaTarea}/>
             <ol>{temas.map(tema => <Item key={tema.nombre} nombre={tema.nombre} visto={tema.visto}></Item>)}</ol>
             <h2>Otra forma de utilizar ternario doble &&</h2>
             <ol>{tema1.map(tema => <Item1 key={tema.nombre} nombre={tema.nombre} visto={tema.visto}></Item1>)}</ol>

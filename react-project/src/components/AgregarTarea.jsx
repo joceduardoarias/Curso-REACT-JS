@@ -1,6 +1,6 @@
 import { React, useState} from 'react'
 
-const AgregarTarea = () => {
+const AgregarTarea = ({onNuevaTarea}) => {
     const [inputValue,setInputValue] = useState('')
     const handleInputValue = (event) =>{        
         console.log(event.target.value);
@@ -8,7 +8,8 @@ const AgregarTarea = () => {
     }
     const handleOnSubmit = (event) =>{
         event.preventDefault()
-        console.log(event);
+        
+        onNuevaTarea(inputValue)
         setInputValue('')
     }
   return (
