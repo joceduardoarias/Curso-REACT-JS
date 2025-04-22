@@ -1,27 +1,19 @@
-import { React, useEffect, useState } from 'react'
+import { React, useState } from 'react'
+import { useFetchData } from '../hooks/useFetchData'
 
-export const UserList = ({endPoint}) => {
-    const [data, setData] = useState([]);
+export const UserList = ({ endPoint }) => {
+  const { data, isLoadind } = useFetchData(endPoint);
 
-    const fetchData = async () => {                
-        const response = await fetch(`https://jsonplaceholder.typicode.com/${endPoint}`)
-        const data = await response.json()        
-        setData(data)
-    }
-
-    useEffect(() => {
-        fetchData()         
-    }, [endPoint]) // Es util cuando la dependencia en este caso el valor de endPoint cambia. Si la
-                  // dependencia esta vacía solo se llama a useEffect cuando se cargar la primerar vez
-                  // el componente.
-                   
   return (
     <>
-    <ul>
-    {endPoint == 'users' ? data.map(item => <li key={item.id}>{item.name}</li> )
-                         : data.map(item => <li key={item.id}>{item.body}</li> )}
-    </ul>
-        
+      <ul>
+        {isLoadind
+          ? <p>Cargando ...</p>
+          : endPoint == 'users'
+            ? data.map(item => <li key={item.id}>{item.name}</li>)
+            : data.map(item => <li key={item.id}>{item.body}</li>)}
+      </ul>
+
     </>
   )
 }
