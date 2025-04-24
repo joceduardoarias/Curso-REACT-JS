@@ -3,9 +3,7 @@ import { useState } from 'react'
 export const useForm = (initalForm = {}) => {
 
     const [formState, setFormState] = useState(initalForm);
-
-    const { userName, email, password } = formState
-
+    
     const onInpuChange = ({ target }) => {
         const { name, value } = target
 
@@ -15,5 +13,8 @@ export const useForm = (initalForm = {}) => {
         })
 
     }
-    return { formState, onInpuChange }
+    return {
+        formState,
+        onInpuChange
+    }
 }
