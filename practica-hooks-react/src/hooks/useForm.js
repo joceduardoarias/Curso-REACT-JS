@@ -14,6 +14,7 @@ export const useForm = (initalForm = {}) => {
 
     }
     return {
+        ...formState,
         formState,
         onInpuChange
     }
