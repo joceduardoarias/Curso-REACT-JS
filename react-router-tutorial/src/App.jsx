@@ -4,10 +4,11 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import HomeScreem from './routes/HomeScreem'
 import AboutScreen from './routes/AboutScreen'
 import ContacScreen from './routes/ContacScreen'
+import {UsuarioProvider} from './context/UsuarioProvider'
 
 const App = () => {
     return (
-        <>
+        <UsuarioProvider>
             <NavBar></NavBar>
             <Routes>
                 <Route path='/' element={<HomeScreem/>}/>
@@ -15,7 +16,7 @@ const App = () => {
                 <Route path='/contact' element={<ContacScreen/>}/>
                 <Route path='/*' element={<Navigate to='/'/>}/>
             </Routes>
-        </>
+        </UsuarioProvider>
     )
 }
 
