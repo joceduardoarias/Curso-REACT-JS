@@ -20,7 +20,7 @@ const HomeScreem = () => {
             <th scope="row">1</th>
             <td>{usuario.nombre}</td>
             <td>{usuario.tecnologia}</td>
-            <td>{usuario.mail}</td>
+            <td>{usuario.email}</td>
             <td>{usuario.redes}</td>
           </tr>         
         </tbody>

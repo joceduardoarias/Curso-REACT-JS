@@ -1,16 +1,14 @@
 import { UsuarioContext } from "./UsuarioContext"
+import { useState } from "react"
 
-const usuario = {
-    nombre: 'jarias',
-    tecnologia: 'React',
-    mail: 'jarias@gmail.com',
-    redes: '@jarias'
-}
 export const UsuarioProvider = ({children}) => {
+    
+    const [usuario, setUsuario] = useState({})
+    
     return (
         //Se provee de la infromación del usuario
         //a todos los children
-        <UsuarioContext.Provider value={{usuario}}>
+        <UsuarioContext.Provider value={{usuario, setUsuario}}>
             {children}
         </UsuarioContext.Provider>
     )
